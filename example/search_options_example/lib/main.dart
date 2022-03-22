@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:search_options/search_options.dart';
 
 void main() {
   runApp(const MyApp());
@@ -57,6 +58,7 @@ class _MyHomePageState extends State<MyHomePage> {
     // The Flutter framework has been optimized to make rerunning build methods
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
@@ -67,7 +69,14 @@ class _MyHomePageState extends State<MyHomePage> {
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
         child: Column(
-          children: [],
+          children: [
+            SearchOptions(
+              allowMultiple: false,
+              height: size.height * 0.135,
+              options: {},
+              width: size.width * 0.875,
+            )
+          ],
         ),
       ),
       floatingActionButton: FloatingActionButton(

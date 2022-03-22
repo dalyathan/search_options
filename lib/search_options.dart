@@ -11,14 +11,16 @@ class SearchOptions extends StatefulWidget {
   final Map<String, VoidCallback> options;
   final double height;
   final double width;
-  final Color? iconColor;
+  final Color? optionsIconBackgroundColor;
+  final Color? optionsIconForegroundColor;
   const SearchOptions(
       {Key? key,
       required this.allowMultiple,
       required this.options,
       required this.height,
       required this.width,
-      this.iconColor})
+      this.optionsIconBackgroundColor,
+      this.optionsIconForegroundColor})
       : super(key: key);
 
   @override
@@ -27,22 +29,17 @@ class SearchOptions extends StatefulWidget {
 
 class _SearchOptionsState extends State<SearchOptions> {
   @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
     double searchBarHeight = widget.height * 0.575;
     double searchContentHeight = searchBarHeight * 0.95;
     BorderRadius borderRadius =
         BorderRadius.circular(searchContentHeight * 0.2);
     return Container(
-        width: widget.width,
-        height: searchBarHeight,
-        child:
-            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+      width: widget.width,
+      height: searchBarHeight,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
           SearchField(
             width: widget.width * 0.775,
             height: searchContentHeight,
@@ -70,6 +67,8 @@ class _SearchOptionsState extends State<SearchOptions> {
               ],
             ),
           )
-        ]));
+        ],
+      ),
+    );
   }
 }

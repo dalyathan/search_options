@@ -28,7 +28,7 @@ class _SearchFieldState extends State<SearchField> {
       width: widget.width,
       height: widget.height,
       child: Padding(
-        padding: EdgeInsets.only(left: widget.width * 0.075),
+        padding: EdgeInsets.only(left: widget.width * 0.05),
         child: Stack(
           alignment: Alignment.centerLeft,
           children: [
@@ -53,16 +53,17 @@ class _SearchFieldState extends State<SearchField> {
               visible:
                   fieldNotFocused && textEditingController.value.text.isEmpty,
               child: SizedBox(
-                width: widget.width * 0.35,
+                width: widget.width * 0.4,
                 height: fontSize,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    CustomPaint(
-                      painter: SearchIconPainter(),
-                      size: Size.square(fontSize * 0.8),
-                    ),
+                    // CustomPaint(
+                    //   painter: SearchIconPainter(),
+                    //   size: Size.square(fontSize * 0.8),
+                    // ),
+                    Icon(Icons.search, size: fontSize * 1.2),
                     SizedBox(
                       height: fontSize,
                       child: FittedBox(
