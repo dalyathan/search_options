@@ -72,8 +72,8 @@ class _MyHomePageState extends State<MyHomePage> {
           children: [
             SearchOptions(
               allowMultiple: false,
-              height: size.height * 0.135,
-              options: {},
+              height: size.height * 0.075,
+              options: {"hello": () {}, "hello1": () {}, "hello2": () {}},
               width: size.width * 0.875,
             )
           ],

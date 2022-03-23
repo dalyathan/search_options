@@ -5,12 +5,14 @@ class OptionsTab extends StatefulWidget {
   final double height;
   final String value;
   final VoidCallback callback;
+  final bool isSelected;
   const OptionsTab(
       {Key? key,
       required this.width,
       required this.height,
       required this.value,
-      required this.callback})
+      required this.callback,
+      required this.isSelected})
       : super(key: key);
 
   @override
@@ -18,20 +20,24 @@ class OptionsTab extends StatefulWidget {
 }
 
 class _OptionsTabState extends State<OptionsTab> {
-  bool isSelected = false;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        setState(() {
-          isSelected = isSelected ? false : true;
-        });
-      },
+      onTap: widget.callback,
       child: Container(
-          decoration: BoxDecoration(
-        color: isSelected ? Colors.grey : Colors.transparent,
-        borderRadius: BorderRadius.circular(widget.height * 0.5),
-      )),
+        height: widget.height,
+        width: widget.width,
+        child: Center(
+            child: Text(
+          widget.value,
+          style:
+              TextStyle(color: widget.isSelected ? Colors.white : Colors.black),
+        )),
+        decoration: BoxDecoration(
+            color: widget.isSelected ? Colors.black12 : Colors.transparent,
+            borderRadius: BorderRadius.circular(widget.height * 0.5),
+            border: Border.all(width: 1)),
+      ),
     );
   }
 }

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:search_options/theme.dart';
 
-import 'search_icon_painter.dart';
-
 class SearchField extends StatefulWidget {
   final double width;
   final double height;
@@ -63,21 +61,25 @@ class _SearchFieldState extends State<SearchField> {
                     //   painter: SearchIconPainter(),
                     //   size: Size.square(fontSize * 0.8),
                     // ),
-                    Icon(Icons.search, size: fontSize * 1.2),
+                    GestureDetector(
+                      onTap: () {},
+                      child: Icon(Icons.search, size: fontSize * 1.2),
+                    ),
                     SizedBox(
                       height: fontSize,
                       child: FittedBox(
-                          fit: BoxFit.fitHeight,
-                          child: Text(
-                            'Search',
-                            style: DefaultTheme.style
-                                .copyWith(color: Colors.grey[400]!),
-                          )),
-                    )
+                        fit: BoxFit.fitHeight,
+                        child: Text(
+                          'Search',
+                          style: DefaultTheme.style
+                              .copyWith(color: Colors.grey[400]!),
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ),
-            )
+            ),
           ],
         ),
       ),
