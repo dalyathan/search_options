@@ -17,7 +17,7 @@ class _OptionsListState extends State<OptionsList> {
   @override
   void initState() {
     super.initState();
-    for (var item in widget.options.keys) {
+    for (var _ in widget.options.keys) {
       selectedOptions.add(false);
     }
   }
@@ -35,6 +35,7 @@ class _OptionsListState extends State<OptionsList> {
         width: tabWidth * values.length,
         height: tabHeight,
         child: ListView.separated(
+          physics: const ClampingScrollPhysics(),
           itemCount: values.length,
           scrollDirection: Axis.horizontal,
           itemBuilder: (_, index) => OptionsTab(

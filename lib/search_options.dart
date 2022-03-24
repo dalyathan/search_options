@@ -29,23 +29,30 @@ class SearchOptions extends StatefulWidget {
 }
 
 class _SearchOptionsState extends State<SearchOptions> {
-  bool showOptions = false;
+  bool showOptions = true;
   @override
   Widget build(BuildContext context) {
     return Stack(
       clipBehavior: Clip.none,
       children: [
-        AnimatedPositioned(
-            duration: const Duration(milliseconds: 300),
-            top: showOptions ? widget.height * 0.9 : 0,
-            child: OptionsList(
-                options: widget.options, allowMultiple: widget.allowMultiple)),
         SearchBar(
           width: widget.width,
           height: widget.height,
           toggleOptions: () => setState(() {
             showOptions = showOptions ? false : true;
           }),
+        ),
+        Visibility(
+          visible: showOptions,
+          child: AnimatedPositioned(
+            duration: const Duration(milliseconds: 300),
+            top: showOptions ? widget.height * 0.9 : 0,
+            bottom: showOptions ? -widget.height * 0.9 : 0,
+            left: 0,
+            right: 0,
+            child: OptionsList(
+                options: widget.options, allowMultiple: widget.allowMultiple),
+          ),
         ),
       ],
     );

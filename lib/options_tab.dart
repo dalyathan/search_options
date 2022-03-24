@@ -28,11 +28,12 @@ class _OptionsTabState extends State<OptionsTab> {
         height: widget.height,
         width: widget.width,
         child: Center(
-            child: Text(
-          widget.value,
-          style:
-              TextStyle(color: widget.isSelected ? Colors.white : Colors.black),
-        )),
+          child: Text(
+            widget.value,
+            style: TextStyle(
+                color: widget.isSelected ? Colors.white : Colors.black),
+          ),
+        ),
         decoration: BoxDecoration(
             color: widget.isSelected ? Colors.black12 : Colors.transparent,
             borderRadius: BorderRadius.circular(widget.height * 0.5),
